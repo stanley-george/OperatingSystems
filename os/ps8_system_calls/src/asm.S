@@ -4,14 +4,14 @@
 #PS 8: System Calls
 
 # ------------------------------------------------------------------------
-#|Syscall # | Param 1	| Param 2 |	Param 3 | Param 4 | Param 5 |	Param 6 |
+#|Syscall # | Param 1	| Param 2 | Param 3 | Param 4 | Param 5 | Param 6 |
 # ------------------------------------------------------------------------
-#|	 eax	   |   ebx	   |   ecx	 |   edx	  |   esi	|   edi	 |  ebp    |
+#|  eax	    |   ebx	|   ecx	  |   edx   |   esi   |   edi	|  ebp    |
 # ------------------------------------------------------------------------
 #-------------
 #Return value |
 #-------------
-# 	   eax 	  |
+#    eax      |
 #-------------
 
 .text
@@ -22,11 +22,11 @@ _start:
 	movl	$1, %ebx 	#put fd=stdout into ebx
 	movl	$msg, %ecx 	#put string into ecx
 	movl	$len, %edx 	#put string length into edx
-	int	$0x80			#call kernel
+	int	$0x80		#call kernel
 	
 	movl 	$1, %eax 	#store exit syscall # (1) in eax
 	movl 	$0, %ebx 	#put exit code into ebx
-	int	$0x80			#call kernel
+	int	$0x80		#call kernel
 
 .data
 msg:
